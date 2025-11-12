@@ -1,0 +1,29 @@
+{
+  "name": "claude-session-management",
+  "owner": {
+    "name": "deemkeen",
+    "email": "dimgur@gmail.com"
+  },
+  "metadata": {
+    "description": "Session snapshot management tools for Claude Code",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "claude-session-management",
+      "source": "./",
+      "description": "Save, load, and manage Claude Code session snapshots with git versioning",
+      "version": "1.0.0",
+      "author": {
+        "name": "deemkeen",
+        "email": "dimgur@gmail.com"
+      },
+      "homepage": "https://github.com/deemkeen/claude-session-management",
+      "repository": "https://github.com/deemkeen/claude-session-management",
+      "license": "MIT",
+      "keywords": ["session", "snapshot", "management", "git", "versioning", "export", "backup"],
+      "category": "productivity",
+      "tags": ["session-management", "backup", "git", "workflow"]
+    }
+  ]
+}

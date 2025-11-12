@@ -12,8 +12,32 @@ A Claude Code plugin for managing session snapshots with git versioning.
 
 ## Installation
 
-1. Clone or copy this plugin to your Claude Code plugins directory
-2. Enable the plugin in Claude Code settings
+### Option 1: Install from Marketplace (Recommended)
+
+1. Add the plugin marketplace to Claude Code:
+```
+/plugin marketplace add deemkeen/claude-session-management
+```
+
+2. Install the plugin:
+```
+/plugin install claude-session-management
+```
+
+3. Start using the `/session-snapshot` command!
+
+### Option 2: Manual Installation
+
+1. Clone this repository:
+```bash
+git clone https://github.com/deemkeen/claude-session-management.git
+```
+
+2. Add the local plugin to Claude Code:
+```
+/plugin add /path/to/claude-session-management
+```
+
 3. Use `/session-snapshot` command
 
 ## Usage
