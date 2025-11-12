@@ -28,9 +28,9 @@ When you run `/session-snapshot`, Claude asks what you want to do:
 
 ### 2. Save Operation
 If you choose **Save**, Claude will:
-1. Create a timestamped export of the current session using Claude's internal export command
+1. Create a timestamped export of the current session using Claude's internal /export slash command
 2. Sanitize the export to remove local machine details (paths, usernames, etc.)
-3. Save it to `./saved-sessions/` directory
+3. Save it to `./saved-sessions/` directory, create the directory if not present
 4. Commit the snapshot to git with a descriptive message
 
 The exported filename format: `YYYYMMDD-HHMMSS-session-snapshot.txt`
