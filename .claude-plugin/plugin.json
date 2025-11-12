@@ -1,0 +1,11 @@
+{
+  "name": "claude-session-management",
+  "version": "1.0.0",
+  "description": "Save, load, and manage Claude Code session snapshots with git versioning",
+  "author": {
+    "name": "deemkeen",
+    "email": "dimgur@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": ["session", "snapshot", "management", "git", "versioning"]
+}
