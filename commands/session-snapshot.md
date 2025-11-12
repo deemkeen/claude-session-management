@@ -8,44 +8,53 @@ Save, load, and delete Claude Code session snapshots with automatic git versioni
 
 ## Usage
 
-- `/session-snapshot save` - Export and save the current session
-- `/session-snapshot load` - Load a saved session from the list
-- `/session-snapshot delete` - Delete a saved session
+Simply run the command:
+```
+/session-snapshot
+```
 
-## Save Operation
+Claude will present you with an interactive dialog to choose your action:
+- **Save** - Export and save the current session
+- **Load** - Load a saved session from the list
+- **Delete** - Delete a saved session
 
-When you use `/session-snapshot save`, Claude will:
+## Workflow
 
-1. Create a timestamped export of the current session
+### 1. Initial Dialog
+When you run `/session-snapshot`, Claude asks what you want to do:
+- Save current session
+- Load a previous session
+- Delete a saved session
+
+### 2. Save Operation
+If you choose **Save**, Claude will:
+1. Create a timestamped export of the current session using Claude's internal export command
 2. Sanitize the export to remove local machine details (paths, usernames, etc.)
 3. Save it to `./saved-sessions/` directory
 4. Commit the snapshot to git with a descriptive message
 
 The exported filename format: `YYYYMMDD-HHMMSS-session-snapshot.txt`
 
-## Load Operation
-
-When you use `/session-snapshot load`, Claude will:
-
-1. Show you a list of available session snapshots sorted by date (newest first)
-2. Ask you to select which snapshot to load
-3. Clear the current context
-4. Load the selected snapshot content into the conversation
+### 3. Load Operation
+If you choose **Load**, Claude will:
+1. Scan the `./saved-sessions/` directory for available snapshots
+2. Show you a list of session snapshots sorted by date (newest first)
+3. Ask you to select which snapshot to load
+4. Clear the current context
+5. Load the selected snapshot content into the conversation
 
 This allows you to resume a previous session exactly where you left off.
 
-## Delete Operation
+### 4. Delete Operation
+If you choose **Delete**, Claude will:
+1. Scan the `./saved-sessions/` directory for available snapshots
+2. Show you a list of session snapshots sorted by date (newest first)
+3. Ask you to select which snapshot to delete
+4. Delete the selected file
+5. Commit the deletion to git
 
-When you use `/session-snapshot delete`, Claude will:
+## Implementation Details
 
-1. Show you a list of available session snapshots sorted by date (newest first)
-2. Ask you to select which snapshot to delete
-3. Delete the selected file
-4. Commit the deletion to git
+The command uses Claude's `AskUserQuestion` tool to provide interactive dialogs at each step, making it intuitive and user-friendly without requiring command-line parameters.
 
----
-
-**Arguments:**
-- `save` - Save the current session
-- `load` - Load a previous session
-- `delete` - Delete a saved session
+All operations automatically commit changes to git, maintaining a complete version history of your session snapshots.

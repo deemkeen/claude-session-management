@@ -4,6 +4,7 @@ A Claude Code plugin for managing session snapshots with git versioning.
 
 ## Features
 
+- **Interactive dialog**: Simple command with guided prompts for all operations
 - **Save sessions**: Export current session with timestamp and sanitize local details
 - **Load sessions**: Browse and load previous sessions with date-sorted list
 - **Delete sessions**: Remove unwanted sessions with git tracking
@@ -42,23 +43,46 @@ git clone https://github.com/deemkeen/claude-session-management.git
 
 ## Usage
 
-### Save a session
+Simply run the command:
 ```
-/session-snapshot save
+/session-snapshot
 ```
-Exports the current conversation, sanitizes it, and commits to git.
 
-### Load a session
-```
-/session-snapshot load
-```
-Shows a list of saved sessions sorted by date. Select one to load.
+Claude will present an interactive dialog to choose your action.
 
-### Delete a session
-```
-/session-snapshot delete
-```
-Shows a list of saved sessions. Select one to delete and commit the change.
+### Interactive Workflow
+
+**Step 1: Choose Action**
+
+Claude asks what you want to do:
+- Save current session
+- Load a previous session
+- Delete a saved session
+
+**Step 2: Perform Operation**
+
+- **Save**: Claude exports, sanitizes, and commits the current session automatically
+- **Load**: Select from a date-sorted list of sessions, then Claude clears context and loads it
+- **Delete**: Select from a date-sorted list of sessions, then Claude deletes and commits
+
+### Examples
+
+#### Save a session
+1. Run `/session-snapshot`
+2. Choose "Save current session"
+3. Claude exports the conversation, sanitizes it, and commits to git
+
+#### Load a session
+1. Run `/session-snapshot`
+2. Choose "Load a previous session"
+3. Select the snapshot from the list (sorted by date, newest first)
+4. Claude clears context and loads the selected session
+
+#### Delete a session
+1. Run `/session-snapshot`
+2. Choose "Delete a saved session"
+3. Select the snapshot to delete from the list
+4. Claude deletes the file and commits the change
 
 ## Directory Structure
 
